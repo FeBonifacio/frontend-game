@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { baseUrl } from "../../utils/routes";
 
 const useCreateGame = () => {
 
@@ -22,7 +23,7 @@ const useCreateGame = () => {
         event.preventDefault();
     
         try {
-            const response = await axios.post('http://localhost:3000/', formData);
+            const response = await axios.post(`${baseUrl}`, formData);
             console.log(response.data);
 
             setFormData({

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Game } from '../types/Game';
+import { baseUrl } from '../../utils/routes';
 
 const useGames = () => {
     const [games, setGames] = useState<Game[]>([]);
@@ -8,7 +9,7 @@ const useGames = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<Game[]>('http://localhost:3000/');
+                const response = await axios.get<Game[]>(`${baseUrl}`);
                 setGames(response.data);
                 console.log('Jogos recebidos:', response.data);
             } catch (error) {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Game } from '../types/Game';
+import { baseUrl } from '../../utils/routes';
 
 const useGameEdit = () => {
     const [showModal, setShowModal] = useState(false);
@@ -8,7 +9,7 @@ const useGameEdit = () => {
 
     const handleEdit = async (game: Game) => {
         try {
-            const response = await axios.put(`http://localhost:3000/`, game);
+            const response = await axios.put(`${baseUrl}`, game);
             if (response.data === true) {
                 console.log('Jogo editado com sucesso!');
             } else {
