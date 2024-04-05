@@ -9,13 +9,14 @@ const CreateGamePage = () => {
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
 
-    useFormValidation(handleSubmit); 
+    useFormValidation(handleSubmit)
 
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const { success, error } = await handleSubmit(event);
 
+        
         if (success) {
             setShowSuccessAlert(true);
             setShowErrorAlert(false);
@@ -30,7 +31,7 @@ const CreateGamePage = () => {
         <ContainerDiv className="container">
             {showSuccessAlert && (
                 <Alert className="alert alert-primary" role="alert" onClose={() => setShowSuccessAlert(false)} dismissible>
-                    <p>Game foi criado com sucesso!</p>
+                    <p>Game foi criado com sucesso</p>
                 </Alert>
             )}
 
