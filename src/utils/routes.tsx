@@ -1,1 +1,1 @@
-export const baseUrl = "https://back-game-fernando-bonifacios-projects.vercel.app/";
+export const baseUrl = "https://back-game-fernando-bonifacios-projects.vercel.app";
