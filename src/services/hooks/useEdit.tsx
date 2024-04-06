@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Game } from '../types/Game';
-import { baseUrl } from '../../utils/routes';
+
 
 const useGameEdit = () => {
     const [showModal, setShowModal] = useState(false);
@@ -10,7 +10,7 @@ const useGameEdit = () => {
     const handleEdit = async (game: Game) => {
         try {
 
-            const response = await axios.put('https://academico.espm.br/testeapi/jogo', game);
+            const response = await axios.put(`http://localhost:3000/`, game);
             if (response.data === true) {
                 console.log('Jogo editado com sucesso!');
             } else {
@@ -31,9 +31,13 @@ const useGameEdit = () => {
     };
 
     const handleSaveEdit = async () => {
-        if (editedGame) {
-            await handleEdit(editedGame);
-            setShowModal(false);
+        try {
+            if (editedGame) {
+                await handleEdit(editedGame);
+                setShowModal(false);
+            }
+        } catch (error) {
+            console.error('Erro foi: ' + error);
         }
     };
 
