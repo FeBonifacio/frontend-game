@@ -6,7 +6,7 @@ const useGameDelete = () => {
     const handleDelete = useCallback(async (id: number) => {
         try {
             console.log('ID do jogo a ser excluído:', id); 
-            await axios.delete(`${baseUrl}/${id}`);
+            await axios.delete(`${baseUrl}/jogo/${id}`);
             console.log('Jogo excluído com sucesso.'); 
         } catch (error) {
             console.error('Erro ao excluir o jogo:', error);
