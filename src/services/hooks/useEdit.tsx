@@ -10,7 +10,7 @@ const useGameEdit = () => {
     const handleEdit = async (game: Game) => {
         try {
 
-            const response = await axios.put(`${baseUrl}/jogo/`, game);
+            const response = await axios.put('https://academico.espm.br/testeapi/jogo', game);
             if (response.data === true) {
                 console.log('Jogo editado com sucesso!');
             } else {
