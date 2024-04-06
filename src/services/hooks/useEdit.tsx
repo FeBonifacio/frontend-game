@@ -9,7 +9,7 @@ const useGameEdit = () => {
 
     const handleEdit = async (game: Game) => {
         try {
-            const response = await axios.put(`${baseUrl}`, game);
+            const response = await axios.put(`${baseUrl}/`, game);
             if (response.data === true) {
                 console.log('Jogo editado com sucesso!');
             } else {
