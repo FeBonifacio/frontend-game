@@ -72,7 +72,7 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                 {isLoading ? (
                     <Button variant="primary" disabled>Salvando...</Button>
                 ) : (
-                    errorOccurred ? ( // Verifica se ocorreu um erro
+                    errorOccurred ? ( 
                         <Button variant="primary" onClick={handleSaveEdit}>
                             Tentar Novamente
                         </Button>

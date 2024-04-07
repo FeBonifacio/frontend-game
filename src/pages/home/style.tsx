@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
     min-height: 68vh;
@@ -6,9 +6,32 @@ export const Container = styled.div`
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-
+    
     .card-body {
         height: 300px;
+        
+    }
+`;
+
+const shadowAnimation = keyframes`
+    0% {
+        box-shadow: 0 0 0 1px #380833;
+    }
+
+    25% {
+        box-shadow: 10px 10px 20px 0px rgb(41, 3, 54);
+    }
+
+    50% {
+        box-shadow: 20px 20px 40px 0px rgb(43, 39, 139);
+    }
+
+    75% {
+        box-shadow: 30px 30px 60px 0px rgb(6, 2, 25);
+    }
+
+    100% {
+        box-shadow: 40px 40px 80px 0px rgb(48, 8, 31);
     }
 `;
 
@@ -16,14 +39,16 @@ export const GameDetailsContainer = styled.div`
     width: calc(33.33% - 20px);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 10px;
+    animation: ${shadowAnimation} 5s infinite;
 
-    @media (max-width: 906px) {
+    @media (max-width: 922px) {
         width: calc(50% - 20px);
     }
 
-    @media (max-width: 425px) {
-        width: calc(100% - 20px);
+    @media (max-width: 500px) {
+        width: 100%;
     }
 `;
 

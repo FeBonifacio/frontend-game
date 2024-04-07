@@ -6,22 +6,22 @@ import { baseUrl } from '../../utils/routes';
 const useGameEdit = () => {
     const [showModal, setShowModal] = useState(false);
     const [editedGame, setEditedGame] = useState<Game | null>(null);
-    const [forceUpdate, setForceUpdate] = useState(false); // Estado para forçar a atualização
-    const [errorOccurred, setErrorOccurred] = useState(false); // Estado para indicar se ocorreu um erro durante a edição
+    const [forceUpdate, setForceUpdate] = useState(false); 
+    const [errorOccurred, setErrorOccurred] = useState(false); 
 
     const handleEdit = async (game: Game) => {
         try {
             const response = await axios.put(`${baseUrl}`, game);
             if (response.data === true) {
                 console.log('Jogo editado com sucesso!');
-                window.location.href = '/'; // Redireciona para a página principal após a edição bem-sucedida
+                window.location.href = '/'; 
             } else {
                 console.error('Falhou em editar o jogo');
-                setErrorOccurred(true); // Define o estado para indicar que ocorreu um erro durante a edição
+                setErrorOccurred(true);
             }
         } catch (error) {
             console.error('Erro ao editar o jogo:', error);
-            setErrorOccurred(true); // Define o estado para indicar que ocorreu um erro durante a edição
+            setErrorOccurred(true); 
         }
     };
 
@@ -32,7 +32,7 @@ const useGameEdit = () => {
     
     const handleCloseModal = () => {
         setShowModal(false);
-        setForceUpdate(true); // Define o estado para forçar a atualização
+        setForceUpdate(true); 
     };
 
     const handleSaveEdit = async () => {
@@ -57,7 +57,7 @@ const useGameEdit = () => {
         handleCloseModal,
         handleSaveEdit,
         setEditedGame,
-        errorOccurred, // Adiciona o estado de erro ao retorno do hook
+        errorOccurred, 
     };
 };
 
