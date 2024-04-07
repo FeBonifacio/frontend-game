@@ -23,12 +23,8 @@ const StyledModal = styled(Modal)`
     }
 `;
 
-const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, setEditedGame }: EditModalProps) => {
+const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, setEditedGame, errorOccurred }: EditModalProps) => {
     const [isLoading, setIsLoading] = useState(false);
-
-    const reloadPage = () => {
-        window.location.reload();
-    }
 
     useFormValidation(handleSaveAndClose); 
 
@@ -39,7 +35,7 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
             </Modal.Header>
             <Modal.Body className="d-flex flex-column align-items-center">
                 <form id="create-game-form">
-                    <div className="mb-3">
+                <div className="mb-3">
                         <p style={{ width: '150px' }}>Nome: {editedGame?.nome}</p>
                         {editedGame && (
                             <input type="text" id="nome" name="nome" value={editedGame.nome} onChange={(e) => handleInputChange(e, 'nome', editedGame, setEditedGame)} />
@@ -76,11 +72,16 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                 {isLoading ? (
                     <Button variant="primary" disabled>Salvando...</Button>
                 ) : (
-                    <Button variant="primary" onClick={() =>
-                        handleSaveAndClose(handleSaveEdit, editedGame, setIsLoading, () => {
-                            reloadPage();
-                            handleCloseModal();
-                        })}>Salvar Edição</Button>
+                    errorOccurred ? ( // Verifica se ocorreu um erro
+                        <Button variant="primary" onClick={handleSaveEdit}>
+                            Tentar Novamente
+                        </Button>
+                    ) : (
+                        <Button variant="primary" onClick={() =>
+                            handleSaveAndClose(handleSaveEdit, editedGame, setIsLoading, handleCloseModal)}>
+                                Salvar Edição
+                        </Button>
+                    )
                 )}
             </Modal.Footer>
         </StyledModal>

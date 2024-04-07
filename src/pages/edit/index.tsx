@@ -14,7 +14,7 @@ import useEditGameFunctions from '../../services/hooks/useEdit';
 const EditGamePage = () => {
     const games: Game[] = useGames();
     const { filteredGames, handleFilter } = useGameFilter(games);
-    const { showModal, editedGame, handleEditClick, handleCloseModal, handleSaveEdit, setEditedGame } = useEditGameFunctions();
+    const { showModal, editedGame, handleEditClick, handleCloseModal, handleSaveEdit, setEditedGame, errorOccurred } = useEditGameFunctions();
 
     const { handleDeleteClick, handleConfirmDelete } = useHandleDeleteClick();
 
@@ -67,7 +67,8 @@ const EditGamePage = () => {
                 handleCloseModal={handleCloseModal} 
                 handleSaveEdit={handleSaveEdit} 
                 editedGame={editedGame} 
-                setEditedGame={setEditedGame} 
+                setEditedGame={setEditedGame}
+                errorOccurred={errorOccurred}
             />
 
             <ConfirmationModal

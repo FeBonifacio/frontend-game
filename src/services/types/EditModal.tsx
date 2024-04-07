@@ -5,4 +5,5 @@ export interface EditModalProps {
     handleSaveEdit: () => Promise<void>;
     editedGame: Game | null;
     setEditedGame: React.Dispatch<React.SetStateAction<Game | null>>;
+    errorOccurred: boolean;
 }
