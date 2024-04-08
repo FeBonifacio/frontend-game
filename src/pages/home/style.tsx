@@ -8,7 +8,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     
     .card-body {
-        height: 300px;
+        height: 330px;
         
     }
 `;

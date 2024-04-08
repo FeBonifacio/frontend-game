@@ -5,7 +5,7 @@ export const ContianerDiv = styled.div`
 
     @media (max-width: 480px) {        
         h1 {
-            font-size: 25px;
+            font-size: 20px;
         }
     }
 `;
