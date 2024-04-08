@@ -5,7 +5,10 @@ export const ContianerDiv = styled.div`
 
     @media (max-width: 480px) {        
         h1 {
+            display: flex;
             font-size: 20px;
+            justify-content: center;
+            align-items: center;
         }
     }
 `;
